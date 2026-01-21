@@ -8,7 +8,7 @@
 <meta name="description" content="ThinkTek Marketing delivers enterprise-grade digital marketing, automation, and growth solutions engineered to scale brands and accelerate revenue.">
 
 <style>
-/* ================= THEME VARIABLES ================= */
+/* ================= VARIABLES ================= */
 :root{
   --primary:#2f80ff;
   --secondary:#5da9ff;
@@ -20,8 +20,8 @@
 }
 
 /* LIGHT MODE */
-body.light-mode{
-  --bg-main:#f5f7fb;
+body.light{
+  --bg-main:#f4f6fb;
   --bg-card:#ffffff;
   --text-main:#0b1220;
   --text-muted:#4b5565;
@@ -38,7 +38,7 @@ body.light-mode{
 body{
   background:var(--bg-main);
   color:var(--text-main);
-  transition:background .4s,color .4s;
+  transition:.3s;
 }
 
 /* ================= HEADER ================= */
@@ -53,11 +53,10 @@ header{
   background:rgba(6,11,24,.9);
   backdrop-filter:blur(10px);
   z-index:1000;
-  transition:.3s;
 }
 
-body.light-mode header{
-  background:rgba(255,255,255,.85);
+body.light header{
+  background:rgba(255,255,255,.9);
 }
 
 header img{height:56px}
@@ -65,7 +64,7 @@ header img{height:56px}
 nav{
   display:flex;
   align-items:center;
-  gap:30px;
+  gap:28px;
 }
 
 nav a{
@@ -74,17 +73,14 @@ nav a{
   font-weight:500;
 }
 
-nav a:hover{color:var(--secondary)}
-
-/* TOGGLE BUTTON */
-.theme-toggle{
+/* 🌙☀️ TOGGLE — FIXED VISIBILITY */
+.toggle{
   cursor:pointer;
-  font-size:18px;
-  padding:8px 12px;
-  border-radius:8px;
   background:var(--bg-card);
-  border:1px solid rgba(0,0,0,.1);
-  transition:.3s;
+  border-radius:10px;
+  padding:8px 12px;
+  font-size:18px;
+  border:1px solid rgba(0,0,0,.15);
 }
 
 /* ================= HERO ================= */
@@ -98,7 +94,7 @@ nav a:hover{color:var(--secondary)}
     url("hero-bg.jpg") center/cover no-repeat;
 }
 
-body.light-mode .hero{
+body.light .hero{
   background:
     linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.9)),
     url("hero-bg.jpg") center/cover no-repeat;
@@ -115,7 +111,6 @@ body.light-mode .hero{
   margin-top:22px;
   font-size:18px;
   color:var(--text-muted);
-  max-width:620px;
 }
 
 .hero-buttons{margin-top:42px}
@@ -128,33 +123,27 @@ body.light-mode .hero{
   margin-right:16px;
 }
 
-.btn-primary{
-  background:var(--primary);
-  color:#fff;
-}
-
-.btn-outline{
-  border:1px solid var(--primary);
-  color:var(--primary);
-}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-outline{border:1px solid var(--primary);color:var(--primary)}
 
 /* ================= SECTIONS ================= */
 section{padding:120px 80px}
 
-.section-title{font-size:40px;margin-bottom:20px}
-.section-subtitle{color:var(--text-muted);max-width:720px;margin-bottom:60px}
+.section-title{font-size:40px;margin-bottom:18px}
+.section-subtitle{color:var(--text-muted);max-width:720px}
 
-/* ================= CARDS ================= */
-.stats,.services,.process{
+/* ================= ABOUT (IMAGE FIXED) ================= */
+.about{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:30px;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
 }
 
-.stat-card,.service-card,.process-card{
-  background:var(--bg-card);
-  padding:40px;
+.about img{
+  width:100%;
   border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
 }
 
 /* ================= CONTACT ================= */
@@ -163,8 +152,6 @@ section{padding:120px 80px}
   grid-template-columns:1fr 1fr;
   gap:60px;
 }
-
-.contact-info p{color:var(--text-muted);margin-bottom:12px}
 
 iframe{
   width:100%;
@@ -189,15 +176,13 @@ iframe{
 }
 
 /* ================= RESPONSIVE ================= */
-@media(max-width:1100px){
-  .stats,.services,.process{grid-template-columns:repeat(2,1fr)}
-  .contact{grid-template-columns:1fr}
+@media(max-width:900px){
+  .about,.contact{grid-template-columns:1fr}
 }
 
 @media(max-width:600px){
   section{padding:90px 24px}
   .hero h1{font-size:40px}
-  .stats,.services,.process{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -211,7 +196,7 @@ iframe{
     <a href="#services">Services</a>
     <a href="#process">Process</a>
     <a href="#contact">Contact</a>
-    <div class="theme-toggle" id="themeToggle">🌙</div>
+    <div class="toggle" id="themeToggle">🌙</div>
   </nav>
 </header>
 
@@ -226,11 +211,25 @@ iframe{
   </div>
 </section>
 
+<section id="about">
+  <div class="about">
+    <div>
+      <h2 class="section-title">About ThinkTek Marketing</h2>
+      <p class="section-subtitle">
+        We deliver data-driven marketing systems that convert attention into revenue.
+      </p>
+    </div>
+
+    <!-- ✅ IMAGE NOW VISIBLE -->
+    <img src="image2.png" alt="ThinkTek Marketing Mission">
+  </div>
+</section>
+
 <section id="contact">
   <h2 class="section-title">Contact Us</h2>
   <div class="contact">
-    <div class="contact-info">
-      <p><strong>Email:</strong> info@thinktekmarketing.com</p>
+    <div>
+      <p>Email: info@thinktekmarketing.com</p>
     </div>
     <iframe src="https://www.google.com/maps?q=1401%20Lavaca%20St,%20Austin,%20TX%2078701&output=embed"></iframe>
   </div>
@@ -242,18 +241,18 @@ iframe{
 const toggle = document.getElementById("themeToggle");
 const body = document.body;
 
-// Load saved mode
+// Load saved theme
 if(localStorage.getItem("theme")==="light"){
-  body.classList.add("light-mode");
+  body.classList.add("light");
   toggle.textContent="☀️";
 }
 
-toggle.addEventListener("click",()=>{
-  body.classList.toggle("light-mode");
-  const isLight = body.classList.contains("light-mode");
+toggle.onclick = ()=>{
+  body.classList.toggle("light");
+  const isLight = body.classList.contains("light");
   toggle.textContent = isLight ? "☀️" : "🌙";
   localStorage.setItem("theme", isLight ? "light" : "dark");
-});
+};
 </script>
 
 </body>
