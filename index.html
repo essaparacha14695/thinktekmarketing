@@ -47,8 +47,12 @@ header{
 
 body.light header{background:#fff}
 
-header img{height:56px}
-
+header img{height:90px}
+@media(max-width:600px){
+  header img{
+    height:55px;
+  }
+}
 nav{display:flex;gap:28px;align-items:center}
 
 nav a{
@@ -259,3 +263,4 @@ toggle.onclick=()=>{
 
 </body>
 </html>
+
