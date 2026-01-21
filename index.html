@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ThinkTek Marketing | Enterprise Digital Marketing Solutions</title>
-<meta name="description" content="ThinkTek Marketing delivers enterprise-grade digital marketing, automation, and growth solutions engineered to scale brands and accelerate revenue.">
 
 <style>
 /* ================= VARIABLES ================= */
@@ -15,25 +14,26 @@
 
   --bg-main:#060b18;
   --bg-card:#121a2f;
+
   --text-main:#ffffff;
   --text-muted:#b8c1d1;
+  --card-text:#ffffff;
+  --card-muted:#9aa4b2;
 }
 
 /* LIGHT MODE */
 body.light{
   --bg-main:#f4f6fb;
   --bg-card:#ffffff;
+
   --text-main:#0b1220;
   --text-muted:#4b5565;
+  --card-text:#0b1220;
+  --card-muted:#5f6b7a;
 }
 
 /* ================= BASE ================= */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Segoe UI",system-ui,sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",system-ui,sans-serif}
 
 body{
   background:var(--bg-main);
@@ -56,7 +56,7 @@ header{
 }
 
 body.light header{
-  background:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.95);
 }
 
 header img{height:56px}
@@ -73,7 +73,7 @@ nav a{
   font-weight:500;
 }
 
-/* 🌙☀️ TOGGLE — FIXED VISIBILITY */
+/* TOGGLE */
 .toggle{
   cursor:pointer;
   background:var(--bg-card);
@@ -90,14 +90,13 @@ nav a{
   display:flex;
   align-items:center;
   background:
-    linear-gradient(rgba(6,11,24,.75),rgba(6,11,24,.9)),
+    linear-gradient(rgba(6,11,24,.65), rgba(6,11,24,.85)),
     url("hero-bg.jpg") center/cover no-repeat;
 }
 
+/* ⚠️ IMPORTANT FIX: NO WHITE OVERLAY IN DAY MODE */
 body.light .hero{
-  background:
-    linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.9)),
-    url("hero-bg.jpg") center/cover no-repeat;
+  background:url("hero-bg.jpg") center/cover no-repeat;
 }
 
 .hero-content{max-width:760px}
@@ -113,26 +112,67 @@ body.light .hero{
   color:var(--text-muted);
 }
 
-.hero-buttons{margin-top:42px}
-
-.hero-buttons a{
-  padding:14px 34px;
-  border-radius:8px;
-  font-weight:600;
-  text-decoration:none;
-  margin-right:16px;
-}
-
-.btn-primary{background:var(--primary);color:#fff}
-.btn-outline{border:1px solid var(--primary);color:var(--primary)}
-
 /* ================= SECTIONS ================= */
 section{padding:120px 80px}
 
-.section-title{font-size:40px;margin-bottom:18px}
-.section-subtitle{color:var(--text-muted);max-width:720px}
+.section-title{
+  font-size:40px;
+  margin-bottom:18px;
+  color:var(--text-main);
+}
 
-/* ================= ABOUT (IMAGE FIXED) ================= */
+.section-subtitle{
+  color:var(--text-muted);
+  max-width:720px;
+}
+
+/* ================= IMPACT / STATS ================= */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+
+.stat-card{
+  background:var(--bg-card);
+  padding:40px;
+  border-radius:18px;
+  text-align:center;
+}
+
+.stat-card h2{
+  color:var(--primary);
+  font-size:42px;
+}
+
+.stat-card p{
+  color:var(--card-muted);
+  margin-top:10px;
+}
+
+/* ================= PROCESS ================= */
+.process{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+
+.process-card{
+  background:var(--bg-card);
+  padding:40px;
+  border-radius:18px;
+}
+
+.process-card h3{
+  color:var(--card-text);
+  margin-bottom:10px;
+}
+
+.process-card p{
+  color:var(--card-muted);
+}
+
+/* ================= ABOUT ================= */
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -143,41 +183,12 @@ section{padding:120px 80px}
 .about img{
   width:100%;
   border-radius:18px;
-  box-shadow:0 20px 60px rgba(0,0,0,.3);
-}
-
-/* ================= CONTACT ================= */
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-}
-
-iframe{
-  width:100%;
-  height:320px;
-  border:none;
-  border-radius:16px;
-}
-
-/* ================= CHAT ================= */
-.chat{
-  position:fixed;
-  bottom:30px;
-  right:30px;
-  background:#28c76f;
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
-  .about,.contact{grid-template-columns:1fr}
+  .about,.stats,.process{grid-template-columns:1fr}
 }
 
 @media(max-width:600px){
@@ -193,9 +204,8 @@ iframe{
   <img src="logo.png" alt="ThinkTek Marketing">
   <nav>
     <a href="#about">About</a>
-    <a href="#services">Services</a>
+    <a href="#impact">Impact</a>
     <a href="#process">Process</a>
-    <a href="#contact">Contact</a>
     <div class="toggle" id="themeToggle">🌙</div>
   </nav>
 </header>
@@ -204,54 +214,43 @@ iframe{
   <div class="hero-content">
     <h1>Think Smart.<br>Market Better.<br>Grow Faster.</h1>
     <p>Enterprise-grade digital marketing, automation, and growth solutions engineered to scale brands and dominate competitive markets.</p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn-primary">Get Started</a>
-      <a href="#services" class="btn-outline">Our Services</a>
-    </div>
   </div>
 </section>
 
-<section id="about">
-  <div class="about">
-    <div>
-      <h2 class="section-title">About ThinkTek Marketing</h2>
-      <p class="section-subtitle">
-        We deliver data-driven marketing systems that convert attention into revenue.
-      </p>
-    </div>
-
-    <!-- ✅ IMAGE NOW VISIBLE -->
-    <img src="image2.png" alt="ThinkTek Marketing Mission">
+<section id="impact">
+  <h2 class="section-title">Our Impact in Numbers</h2>
+  <div class="stats">
+    <div class="stat-card"><h2>20+</h2><p>Projects</p></div>
+    <div class="stat-card"><h2>50+</h2><p>Clients</p></div>
+    <div class="stat-card"><h2>10+</h2><p>Years Experience</p></div>
+    <div class="stat-card"><h2>24/7</h2><p>Support</p></div>
   </div>
 </section>
 
-<section id="contact">
-  <h2 class="section-title">Contact Us</h2>
-  <div class="contact">
-    <div>
-      <p>Email: info@thinktekmarketing.com</p>
-    </div>
-    <iframe src="https://www.google.com/maps?q=1401%20Lavaca%20St,%20Austin,%20TX%2078701&output=embed"></iframe>
+<section id="process">
+  <h2 class="section-title">Our Delivery Process</h2>
+  <div class="process">
+    <div class="process-card"><h3>Discover</h3><p>Business & technical analysis</p></div>
+    <div class="process-card"><h3>Design</h3><p>Architecture & UX planning</p></div>
+    <div class="process-card"><h3>Build</h3><p>Agile enterprise development</p></div>
+    <div class="process-card"><h3>Scale</h3><p>Optimization & growth</p></div>
   </div>
 </section>
-
-<div class="chat">💬</div>
 
 <script>
-const toggle = document.getElementById("themeToggle");
-const body = document.body;
+const toggle=document.getElementById("themeToggle");
+const body=document.body;
 
-// Load saved theme
 if(localStorage.getItem("theme")==="light"){
   body.classList.add("light");
   toggle.textContent="☀️";
 }
 
-toggle.onclick = ()=>{
+toggle.onclick=()=>{
   body.classList.toggle("light");
-  const isLight = body.classList.contains("light");
-  toggle.textContent = isLight ? "☀️" : "🌙";
-  localStorage.setItem("theme", isLight ? "light" : "dark");
+  const light=body.classList.contains("light");
+  toggle.textContent=light?"☀️":"🌙";
+  localStorage.setItem("theme",light?"light":"dark");
 };
 </script>
 
