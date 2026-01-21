@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ThinkTek Marketing | Enterprise Digital Marketing Solutions</title>
+<title>ThinkTek Marketing | Technology-Driven Growth Solutions</title>
+<meta name="description" content="ThinkTek Marketing delivers technology-driven digital marketing, automation, and scalable growth solutions for modern enterprises.">
 
 <style>
 /* ================= VARIABLES ================= */
@@ -94,23 +95,14 @@ nav a{
     url("hero-bg.jpg") center/cover no-repeat;
 }
 
-/* ⚠️ IMPORTANT FIX: NO WHITE OVERLAY IN DAY MODE */
 body.light .hero{
   background:url("hero-bg.jpg") center/cover no-repeat;
 }
 
 .hero-content{max-width:760px}
 
-.hero h1{
-  font-size:58px;
-  line-height:1.15;
-}
-
-.hero p{
-  margin-top:22px;
-  font-size:18px;
-  color:var(--text-muted);
-}
+.hero h1{font-size:58px;line-height:1.15}
+.hero p{margin-top:22px;font-size:18px;color:var(--text-muted)}
 
 /* ================= SECTIONS ================= */
 section{padding:120px 80px}
@@ -123,10 +115,52 @@ section{padding:120px 80px}
 
 .section-subtitle{
   color:var(--text-muted);
-  max-width:720px;
+  max-width:760px;
+  margin-bottom:60px;
 }
 
-/* ================= IMPACT / STATS ================= */
+/* ================= ABOUT ================= */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.about img{
+  width:100%;
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+/* ================= SERVICES (RESTORED) ================= */
+.services{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+
+.service-card{
+  background:var(--bg-card);
+  padding:40px;
+  border-radius:18px;
+  transition:.3s;
+}
+
+.service-card:hover{
+  transform:translateY(-6px);
+}
+
+.service-card h3{
+  color:var(--card-text);
+  margin-bottom:12px;
+}
+
+.service-card p{
+  color:var(--card-muted);
+}
+
+/* ================= IMPACT ================= */
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -163,32 +197,12 @@ section{padding:120px 80px}
   border-radius:18px;
 }
 
-.process-card h3{
-  color:var(--card-text);
-  margin-bottom:10px;
-}
-
-.process-card p{
-  color:var(--card-muted);
-}
-
-/* ================= ABOUT ================= */
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-
-.about img{
-  width:100%;
-  border-radius:18px;
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
-}
+.process-card h3{color:var(--card-text);margin-bottom:10px}
+.process-card p{color:var(--card-muted)}
 
 /* ================= RESPONSIVE ================= */
-@media(max-width:900px){
-  .about,.stats,.process{grid-template-columns:1fr}
+@media(max-width:1000px){
+  .about,.services,.stats,.process{grid-template-columns:1fr}
 }
 
 @media(max-width:600px){
@@ -204,6 +218,7 @@ section{padding:120px 80px}
   <img src="logo.png" alt="ThinkTek Marketing">
   <nav>
     <a href="#about">About</a>
+    <a href="#services">Services</a>
     <a href="#impact">Impact</a>
     <a href="#process">Process</a>
     <div class="toggle" id="themeToggle">🌙</div>
@@ -213,7 +228,49 @@ section{padding:120px 80px}
 <section class="hero">
   <div class="hero-content">
     <h1>Think Smart.<br>Market Better.<br>Grow Faster.</h1>
-    <p>Enterprise-grade digital marketing, automation, and growth solutions engineered to scale brands and dominate competitive markets.</p>
+    <p>Technology-driven marketing and automation solutions built to scale modern businesses.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div>
+      <h2 class="section-title">About ThinkTek Marketing</h2>
+      <p class="section-subtitle">
+        We combine marketing strategy, data, and technology to build scalable growth systems for ambitious brands.
+      </p>
+    </div>
+    <img src="image2.png" alt="ThinkTek Marketing">
+  </div>
+</section>
+
+<!-- ✅ SERVICES NOW PRESENT -->
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
+  <p class="section-subtitle">
+    Enterprise-grade marketing and technology solutions designed for growth, efficiency, and scale.
+  </p>
+
+  <div class="services">
+    <div class="service-card">
+      <h3>Digital Marketing</h3>
+      <p>SEO, paid media, content marketing, and conversion optimization powered by analytics.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Marketing Automation</h3>
+      <p>CRM integrations, funnels, email automation, and AI-driven workflows.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Web & Technology Solutions</h3>
+      <p>High-performance websites, landing pages, and enterprise-ready web systems.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Data & Growth Analytics</h3>
+      <p>Advanced tracking, dashboards, and insights to optimize ROI and scalability.</p>
+    </div>
   </div>
 </section>
 
@@ -231,8 +288,8 @@ section{padding:120px 80px}
   <h2 class="section-title">Our Delivery Process</h2>
   <div class="process">
     <div class="process-card"><h3>Discover</h3><p>Business & technical analysis</p></div>
-    <div class="process-card"><h3>Design</h3><p>Architecture & UX planning</p></div>
-    <div class="process-card"><h3>Build</h3><p>Agile enterprise development</p></div>
+    <div class="process-card"><h3>Design</h3><p>Strategy & system planning</p></div>
+    <div class="process-card"><h3>Build</h3><p>Agile execution & deployment</p></div>
     <div class="process-card"><h3>Scale</h3><p>Optimization & growth</p></div>
   </div>
 </section>
