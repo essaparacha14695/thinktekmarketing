@@ -359,12 +359,13 @@
 <section id="impact">
   <h2 class="section-title">Our Impact in Numbers</h2>
   <div class="grid4">
-    <div class="card">20+ Projects</div>
-    <div class="card">50+ Clients</div>
-    <div class="card">10+ Years</div>
-    <div class="card">24/7 Support</div>
+    <div class="card impact-card"><div class="impact-icon">📊</div><div class="impact-number" data-target="20">0</div><div class="impact-label">Projects</div></div>
+    <div class="card impact-card"><div class="impact-icon">🤝</div><div class="impact-number" data-target="50">0</div><div class="impact-label">Clients</div></div>
+    <div class="card impact-card"><div class="impact-icon">⏳</div><div class="impact-number" data-target="10">0</div><div class="impact-label">Years</div></div>
+    <div class="card impact-card"><div class="impact-icon">🛎️</div><div class="impact-number" data-target="24">0</div><div class="impact-label">Support</div></div>
   </div>
 </section>
+
 
 <section id="process">
   <h2 class="section-title">Our Delivery Process</h2>
@@ -415,8 +416,15 @@ toggle.onclick=()=>{
   toggle.textContent=light?"☀️":"🌙";
   localStorage.theme=light?"light":"dark";
 };
+/* Impact counters */
+const counters=document.querySelectorAll(".impact-number");
+let done=false;
+const run=()=>{if(done)return;done=true;counters.forEach(c=>{let t=+c.dataset.target,n=0,i=t/60;(function f(){n+=i;if(n<t){c.textContent=Math.ceil(n);requestAnimationFrame(f)}else{c.textContent=t+(t===24?"/7":"+")}})()})};
+new IntersectionObserver(e=>e[0].isIntersecting&&run(),{threshold:.4}).observe(document.querySelector("#impact"));
+
 </script>
 
 </body>
 </html>
+
 
