@@ -234,6 +234,27 @@ iframe{
 .service-cta:hover{
   text-decoration:underline;
 }
+/* IMPACT COUNTERS */
+.impact-card{
+  text-align:center;
+}
+
+.impact-icon{
+  font-size:28px;
+  margin-bottom:12px;
+}
+
+.impact-number{
+  font-size:36px;
+  font-weight:700;
+  color:#ffffff;
+  margin-bottom:6px;
+}
+
+.impact-label{
+  font-size:.95rem;
+  color:var(--text-muted);
+}  
 </style>
 </head>
 
@@ -345,11 +366,33 @@ iframe{
 
 <section id="impact">
   <h2 class="section-title">Our Impact in Numbers</h2>
-  <div class="grid4">
-    <div class="card">20+ Projects</div>
-    <div class="card">50+ Clients</div>
-    <div class="card">10+ Years</div>
-    <div class="card">24/7 Support</div>
+
+  <div class="grid4 impact-grid">
+
+    <div class="card impact-card">
+      <div class="impact-icon">📊</div>
+      <div class="impact-number" data-target="15">0</div>
+      <div class="impact-label">Projects Delivered</div>
+    </div>
+
+    <div class="card impact-card">
+      <div class="impact-icon">🤝</div>
+      <div class="impact-number" data-target="30">0</div>
+      <div class="impact-label">Clients Served</div>
+    </div>
+
+    <div class="card impact-card">
+      <div class="impact-icon">⏳</div>
+      <div class="impact-number" data-target="5">0</div>
+      <div class="impact-label">Years of Experience</div>
+    </div>
+
+    <div class="card impact-card">
+      <div class="impact-icon">🛎️</div>
+      <div class="impact-number" data-target="24">0</div>
+      <div class="impact-label">Support Availability</div>
+    </div>
+
   </div>
 </section>
 
@@ -390,7 +433,45 @@ iframe{
     <iframe src="https://www.google.com/maps?q=1401%20Lavaca%20St,%20Austin,%20TX%2078701&output=embed"></iframe>
   </div>
 </section>
+  
+<script>
+/* Impact counter animation on scroll */
+const counters = document.querySelectorAll('.impact-number');
+let countersStarted = false;
 
+const runCounters = () => {
+  if (countersStarted) return;
+  countersStarted = true;
+
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+    const increment = target / 60;
+
+    const update = () => {
+      count += increment;
+      if (count < target) {
+        counter.textContent = Math.ceil(count);
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent = target + (target === 24 ? "/7" : "+");
+      }
+    };
+    update();
+  });
+};
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      runCounters();
+    }
+  });
+}, { threshold: 0.4 });
+
+observer.observe(document.querySelector('#impact'));
+</script>
+  
 <script>
 const toggle=document.getElementById("toggle");
 if(localStorage.theme==="light"){
@@ -407,6 +488,7 @@ toggle.onclick=()=>{
 
 </body>
 </html>
+
 
 
 
