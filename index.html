@@ -317,6 +317,93 @@
     z-index:1;
   }
 }
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+@media (max-width: 768px){
+
+  /* HEADER */
+  header{
+    padding:14px 20px;
+  }
+
+  header img{
+    height:48px;
+  }
+
+  nav{
+    gap:16px;
+  }
+
+  nav a{
+    font-size:.9rem;
+  }
+
+  /* HERO SECTION */
+  .hero{
+    padding:140px 24px 80px;
+    text-align:left;
+  }
+
+  .hero h1{
+    font-size:38px;
+    line-height:1.2;
+  }
+
+  .hero p{
+    font-size:.95rem;
+    line-height:1.6;
+    max-width:100%;
+  }
+
+  /* SECTIONS */
+  section{
+    padding:80px 24px;
+  }
+
+  .section-title{
+    font-size:30px;
+  }
+
+  .section-subtitle{
+    font-size:.95rem;
+    margin-bottom:40px;
+  }
+
+  /* GRIDS → STACK */
+  .grid4{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  /* SERVICE CARDS */
+  .service-card{
+    padding:28px;
+  }
+
+  .service-icon{
+    font-size:24px;
+  }
+
+  /* PROCESS CARDS */
+  .process-bg{
+    font-size:64px;
+  }
+
+  /* ABOUT IMAGE */
+  .about img{
+    margin-top:20px;
+  }
+
+  /* CONTACT */
+  .contact{
+    gap:40px;
+  }
+
+  iframe{
+    height:260px;
+  }
+}
   </style>
 </head>
 
@@ -528,6 +615,7 @@ new IntersectionObserver(e=>e[0].isIntersecting&&run(),{threshold:.4}).observe(d
 
 </body>
 </html>
+
 
 
 
