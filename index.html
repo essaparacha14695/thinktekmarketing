@@ -94,23 +94,23 @@ body.light .hero{background:url("hero-bg.jpg") center/cover no-repeat}
   margin-top:20px;
   max-width:700px;
   color:#ffffff;
-}
-  .hero{
+/* Light mode hero overlay ONLY */
+body.light .hero{
   position:relative;
 }
 
-.hero::before{
+body.light .hero::before{
   content:"";
   position:absolute;
   inset:0;
   background:linear-gradient(
-    rgba(6,11,24,0.75),
-    rgba(6,11,24,0.9)
+    rgba(255,255,255,0.55),
+    rgba(255,255,255,0.85)
   );
   z-index:0;
 }
 
-.hero > div{
+body.light .hero > div{
   position:relative;
   z-index:1;
 }
@@ -407,6 +407,7 @@ toggle.onclick=()=>{
 
 </body>
 </html>
+
 
 
 
