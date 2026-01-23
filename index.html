@@ -435,44 +435,6 @@ iframe{
 </section>
   
 <script>
-/* Impact counter animation on scroll */
-const counters = document.querySelectorAll('.impact-number');
-let countersStarted = false;
-
-const runCounters = () => {
-  if (countersStarted) return;
-  countersStarted = true;
-
-  counters.forEach(counter => {
-    const target = +counter.getAttribute('data-target');
-    let count = 0;
-    const increment = target / 60;
-
-    const update = () => {
-      count += increment;
-      if (count < target) {
-        counter.textContent = Math.ceil(count);
-        requestAnimationFrame(update);
-      } else {
-        counter.textContent = target + (target === 24 ? "/7" : "+");
-      }
-    };
-    update();
-  });
-};
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      runCounters();
-    }
-  });
-}, { threshold: 0.4 });
-
-observer.observe(document.querySelector('#impact'));
-</script>
-  
-<script>
 const toggle=document.getElementById("toggle");
 if(localStorage.theme==="light"){
   document.body.classList.add("light");
@@ -488,6 +450,7 @@ toggle.onclick=()=>{
 
 </body>
 </html>
+
 
 
 
