@@ -51,18 +51,10 @@ header{
 body.light header{background:#fff}
 
 header img{height:100px}
-@media(max-width:600px){
-  header img{
-    height:55px;
-  }
-}
-nav{display:flex;gap:28px;align-items:center}
+@media(max-width:600px){ header img{height:55px} }
 
-nav a{
-  color:var(--text-main);
-  text-decoration:none;
-  font-weight:500;
-}
+nav{display:flex;gap:28px;align-items:center}
+nav a{color:var(--text-main);text-decoration:none;font-weight:500}
 
 .toggle{
   cursor:pointer;
@@ -82,20 +74,8 @@ nav a{
     url("hero-bg.jpg") center/cover no-repeat;
 }
 
-body.light .hero{background:url("hero-bg.jpg") center/cover no-repeat}
-
-.hero h1{
-  font-size:56px;
-  line-height:1.15;
-  color:#ffffff;
-}
-
-.hero p{
-  margin-top:20px;
-  max-width:700px;
-  color:#ffffff;
-/* Light mode hero overlay ONLY */
 body.light .hero{
+  background:url("hero-bg.jpg") center/cover no-repeat;
   position:relative;
 }
 
@@ -104,137 +84,53 @@ body.light .hero::before{
   position:absolute;
   inset:0;
   background:linear-gradient(
-    rgba(255,255,255,0.55),
-    rgba(255,255,255,0.85)
+    rgba(255,255,255,.55),
+    rgba(255,255,255,.85)
   );
   z-index:0;
 }
 
-body.light .hero > div{
-  position:relative;
-  z-index:1;
-}
+body.light .hero > div{position:relative;z-index:1}
+
+.hero h1{font-size:56px;line-height:1.15;color:#fff}
+.hero p{margin-top:20px;max-width:700px;color:#fff}
 
 /* SECTIONS */
 section{padding:120px 80px}
-
 .section-title{font-size:40px;margin-bottom:20px}
 .section-subtitle{color:var(--text-muted);max-width:750px;margin-bottom:60px}
 
 /* ABOUT */
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-
+.about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .about img{width:100%;border-radius:18px}
 
-/* SERVICES / STATS / PROCESS */
-.grid4{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:30px;
-}
+/* GRIDS */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.card{background:var(--bg-card);padding:40px;border-radius:18px}
 
-.card{
-  background:var(--bg-card);
-  padding:40px;
-  border-radius:18px;
-}
+/* SERVICES */
+.services-grid{align-items:stretch}
+.service-card{transition:.35s ease;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.service-card:hover{transform:translateY(-8px);box-shadow:0 0 35px rgba(47,128,255,.25)}
+.service-icon{font-size:26px;margin-bottom:14px}
+.service-focus{font-size:.95rem;color:var(--text-muted);margin-bottom:14px}
+
+/* IMPACT */
+.impact-card{text-align:center}
+.impact-icon{font-size:28px;margin-bottom:10px}
+.impact-number{font-size:36px;font-weight:700}
+.impact-label{color:var(--text-muted)}
 
 /* CONTACT */
-.contact{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-}
-
-input{
-  padding:14px;
-  border-radius:8px;
-  border:none;
-  background:var(--bg-card);
-  color:var(--text-main);
-}
-
-button{
-  padding:14px 22px;
-  background:var(--primary);
-  border:none;
-  color:#fff;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-iframe{
-  width:100%;
-  height:320px;
-  border:none;
-  border-radius:18px;
-}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+input,button{padding:14px;border-radius:8px;border:none}
+input{background:var(--bg-card);color:var(--text-main)}
+button{background:var(--primary);color:#fff;cursor:pointer}
+iframe{width:100%;height:320px;border:none;border-radius:18px}
 
 /* RESPONSIVE */
-@media(max-width:900px){
-  .about,.grid4,.contact{grid-template-columns:1fr}
-}
-
-@media(max-width:600px){
-  section{padding:90px 24px}
-  .hero h1{font-size:40px}
-}
-.services-grid{
-  align-items:stretch;
-}
-
-.service-card{
-  transition:.35s ease;
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
-}
-
-.service-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 35px rgba(47,128,255,.25);
-}
-
-.service-icon{
-  font-size:26px;
-  margin-bottom:14px;
-}
-
-.service-card h3{
-  margin-bottom:6px;
-}
-
-.service-focus{
-  font-size:.95rem;
-  color:var(--text-muted);
-  margin-bottom:14px;
-}
-
-.service-card ul{
-  padding-left:18px;
-  margin-bottom:16px;
-}
-
-.service-card li{
-  font-size:.9rem;
-  margin-bottom:8px;
-  line-height:1.5;
-}
-
-.service-cta{
-  font-size:.9rem;
-  color:var(--primary);
-  text-decoration:none;
-  font-weight:500;
-}
-
-.service-cta:hover{
-  text-decoration:underline;
-}
-
+@media(max-width:900px){.about,.grid4,.contact{grid-template-columns:1fr}}
+@media(max-width:600px){section{padding:90px 24px}.hero h1{font-size:40px}}
 </style>
 </head>
 
@@ -259,161 +155,28 @@ iframe{
   </div>
 </section>
 
-<section id="about">
-  <div class="about">
-    <div>
-      <h2 class="section-title">About ThinkTek Marketing</h2>
-      <p class="section-subtitle">
-  We combine marketing strategy, technology, and data to build scalable growth systems.
-  <br><br>
-  From AI-driven discovery to conversion-focused execution, we help businesses attract,
-  engage, and convert the right audiences at scale.
-  <br><br>
-  Our approach blends human strategy with automation, analytics, and modern technology
-  to create predictable, sustainable growth — not vanity metrics.
-</p>
-    </div>
-    <img src="image2.png" alt="ThinkTek Marketing">
-  </div>
-</section>
-
-<section id="services">
-  <h2 class="section-title">Our Services</h2>
-  <p class="section-subtitle">
-    Scalable systems designed to drive ROI in an AI-first, data-driven world.
-  </p>
-
-  <div class="grid4 services-grid">
-
-    <div class="card service-card">
-      <div class="service-icon">📈</div>
-      <h3>Digital Marketing</h3>
-      <p class="service-focus">
-        ROI-driven growth in the modern AI-search landscape.
-      </p>
-      <ul>
-        <li><strong>Search & GEO Optimization:</strong> Visibility across Google and AI search engines like ChatGPT.</li>
-        <li><strong>Paid Performance:</strong> High-converting LinkedIn, Google & Meta campaigns.</li>
-        <li><strong>Founder-Led Branding:</strong> Executive thought leadership through content.</li>
-      </ul>
-   
-    </div>
-
-    <div class="card service-card">
-      <div class="service-icon">⚙️</div>
-      <h3>Marketing Automation</h3>
-      <p class="service-focus">
-        Systems that put growth on autopilot.
-      </p>
-      <ul>
-        <li><strong>CRM Implementation:</strong> HubSpot, Salesforce & custom CRM setups.</li>
-        <li><strong>Nurture Sequences:</strong> Automated email & SMS workflows.</li>
-        <li><strong>Lead Scoring:</strong> AI-based buyer-intent identification.</li>
-      </ul>
-     
-    </div>
-
-    <div class="card service-card">
-      <div class="service-icon">💻</div>
-      <h3>Web & Technology Solutions</h3>
-      <p class="service-focus">
-        Speed, stability, and scalable infrastructure.
-      </p>
-      <ul>
-        <li><strong>High-Performance Sites:</strong> Fast, secure & conversion-focused.</li>
-        <li><strong>Custom Integrations:</strong> Unified internal workflows.</li>
-        <li><strong>Tech-Stack Audits:</strong> Eliminate waste & fix data gaps.</li>
-      </ul>
-     
-    </div>
-
-    <div class="card service-card">
-      <div class="service-icon">🧠</div>
-      <h3>Data & Growth Analytics</h3>
-      <p class="service-focus">
-        Intelligence that drives confident decisions.
-      </p>
-      <ul>
-        <li><strong>Attribution Modeling:</strong> Know which dollar drove each sale.</li>
-        <li><strong>Growth Dashboards:</strong> Real-time KPI visibility.</li>
-        <li><strong>Predictive Insights:</strong> Forecast before scaling spend.</li>
-      </ul>
-    
-    </div>
-
-  </div>
-</section>
-
 <section id="impact">
   <h2 class="section-title">Our Impact in Numbers</h2>
   <div class="grid4">
-    <div class="card">20+ Projects</div>
-    <div class="card">50+ Clients</div>
-    <div class="card">10+ Years</div>
-    <div class="card">24/7 Support</div>
+    <div class="card impact-card"><div class="impact-icon">📊</div><div class="impact-number" data-target="20">0</div><div class="impact-label">Projects</div></div>
+    <div class="card impact-card"><div class="impact-icon">🤝</div><div class="impact-number" data-target="50">0</div><div class="impact-label">Clients</div></div>
+    <div class="card impact-card"><div class="impact-icon">⏳</div><div class="impact-number" data-target="10">0</div><div class="impact-label">Years</div></div>
+    <div class="card impact-card"><div class="impact-icon">🛎️</div><div class="impact-number" data-target="24">0</div><div class="impact-label">Support</div></div>
   </div>
 </section>
 
-<section id="process">
-  <h2 class="section-title">Our Delivery Process</h2>
-  <div class="grid4">
-    <div class="card">Discover</div>
-    <div class="card">Design</div>
-    <div class="card">Build</div>
-    <div class="card">Scale</div>
-  </div>
-</section>
-
-<!-- ✅ CONTACT SECTION (NOW GUARANTEED VISIBLE) -->
-<section id="contact">
-  <h2 class="section-title">Contact Us</h2>
-
-  <div class="contact">
-    <div>
-      <p><strong>Email:</strong><br>info@thinktekmarketing.com</p>
-      <p style="margin:20px 0">
-        <strong>Address:</strong><br>
-        1401 Lavaca Street, Unit #7065<br>
-        Austin, TX 78701
-      </p>
-
-      <h3>Subscribe</h3>
-      <p style="color:var(--text-muted);margin-bottom:12px">
-        Sign up to hear from us about updates and offers.
-      </p>
-
-      <div style="display:flex;gap:12px;max-width:420px">
-        <input type="email" placeholder="Email address">
-        <button>Sign Up</button>
-      </div>
-    </div>
-
-    <iframe src="https://www.google.com/maps?q=1401%20Lavaca%20St,%20Austin,%20TX%2078701&output=embed"></iframe>
-  </div>
-</section>
-  
 <script>
+/* Theme toggle */
 const toggle=document.getElementById("toggle");
-if(localStorage.theme==="light"){
-  document.body.classList.add("light");
-  toggle.textContent="☀️";
-}
-toggle.onclick=()=>{
-  document.body.classList.toggle("light");
-  const light=document.body.classList.contains("light");
-  toggle.textContent=light?"☀️":"🌙";
-  localStorage.theme=light?"light":"dark";
-};
+if(localStorage.theme==="light"){document.body.classList.add("light");toggle.textContent="☀️"}
+toggle.onclick=()=>{document.body.classList.toggle("light");toggle.textContent=document.body.classList.contains("light")?"☀️":"🌙";localStorage.theme=document.body.classList.contains("light")?"light":"dark"};
+
+/* Impact counters */
+const counters=document.querySelectorAll(".impact-number");
+let done=false;
+const run=()=>{if(done)return;done=true;counters.forEach(c=>{let t=+c.dataset.target,n=0,i=t/60;(function f(){n+=i;if(n<t){c.textContent=Math.ceil(n);requestAnimationFrame(f)}else{c.textContent=t+(t===24?"/7":"+")}})()})};
+new IntersectionObserver(e=>e[0].isIntersecting&&run(),{threshold:.4}).observe(document.querySelector("#impact"));
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
