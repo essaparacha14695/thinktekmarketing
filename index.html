@@ -404,6 +404,30 @@
     height:260px;
   }
 }
+    /* =========================
+   MOBILE HEADER FIX
+========================= */
+@media (max-width: 768px){
+
+  header{
+    padding:12px 16px;
+  }
+
+  nav{
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+
+  nav a{
+    font-size:.85rem;
+    white-space:nowrap;
+  }
+
+  header img{
+    height:42px;
+  }
+}
   </style>
 </head>
 
@@ -615,6 +639,7 @@ new IntersectionObserver(e=>e[0].isIntersecting&&run(),{threshold:.4}).observe(d
 
 </body>
 </html>
+
 
 
 
