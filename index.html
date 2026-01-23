@@ -253,6 +253,70 @@
     }
 
     .service-cta:hover{text-decoration:underline}
+
+    /* PROCESS ENHANCEMENTS */
+.process-grid{
+  position:relative;
+}
+
+.process-card{
+  position:relative;
+  overflow:hidden;
+  min-height:220px;
+}
+
+.process-phase{
+  display:inline-block;
+  font-size:.75rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--primary);
+  margin-bottom:6px;
+}
+
+.process-card h3{
+  margin:6px 0 10px;
+}
+
+.process-desc{
+  font-size:.95rem;
+  color:var(--text-muted);
+  line-height:1.6;
+}
+
+/* Large background step number */
+.process-bg{
+  position:absolute;
+  top:10px;
+  right:14px;
+  font-size:96px;
+  font-weight:700;
+  color:rgba(255,255,255,.04);
+  pointer-events:none;
+}
+
+/* Subtle connector line (desktop only) */
+@media(min-width:900px){
+  .process-grid::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:5%;
+    right:5%;
+    height:1px;
+    background:linear-gradient(
+      90deg,
+      transparent,
+      rgba(47,128,255,.35),
+      transparent
+    );
+    z-index:0;
+  }
+
+  .process-card{
+    z-index:1;
+  }
+}
   </style>
 </head>
 
@@ -369,11 +433,49 @@
 
 <section id="process">
   <h2 class="section-title">Our Delivery Process</h2>
-  <div class="grid4">
-    <div class="card">Discover</div>
-    <div class="card">Design</div>
-    <div class="card">Build</div>
-    <div class="card">Scale</div>
+
+  <div class="grid4 process-grid">
+
+    <div class="card process-card">
+      <span class="process-bg">01</span>
+      <span class="process-phase">Phase 1</span>
+      <h3>Discover</h3>
+      <p class="process-desc">
+        <strong>The Deep Dive:</strong> We analyze your current market position, competitor gaps,
+        and technical bottlenecks to identify your fastest path to growth.
+      </p>
+    </div>
+
+    <div class="card process-card">
+      <span class="process-bg">02</span>
+      <span class="process-phase">Phase 2</span>
+      <h3>Design</h3>
+      <p class="process-desc">
+        <strong>The Strategic Blueprint:</strong> We architect a custom marketing roadmap and
+        tech-stack layout tailored specifically to your business goals.
+      </p>
+    </div>
+
+    <div class="card process-card">
+      <span class="process-bg">03</span>
+      <span class="process-phase">Phase 3</span>
+      <h3>Build</h3>
+      <p class="process-desc">
+        <strong>Technical Execution:</strong> Our team deploys campaigns, builds high-converting
+        assets, and integrates automation tools for seamless operation.
+      </p>
+    </div>
+
+    <div class="card process-card">
+      <span class="process-bg">04</span>
+      <span class="process-phase">Phase 4</span>
+      <h3>Scale</h3>
+      <p class="process-desc">
+        <strong>Optimization & Growth:</strong> We use real-time data to refine performance,
+        doubling down on what works to maximize market share.
+      </p>
+    </div>
+
   </div>
 </section>
 
@@ -426,5 +528,6 @@ new IntersectionObserver(e=>e[0].isIntersecting&&run(),{threshold:.4}).observe(d
 
 </body>
 </html>
+
 
 
