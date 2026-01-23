@@ -84,8 +84,36 @@ nav a{
 
 body.light .hero{background:url("hero-bg.jpg") center/cover no-repeat}
 
-.hero h1{font-size:56px;line-height:1.15}
-.hero p{margin-top:20px;color:var(--text-muted);max-width:700px}
+.hero h1{
+  font-size:56px;
+  line-height:1.15;
+  color:#ffffff;
+}
+
+.hero p{
+  margin-top:20px;
+  max-width:700px;
+  color:#ffffff;
+}
+  .hero{
+  position:relative;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    rgba(6,11,24,0.75),
+    rgba(6,11,24,0.9)
+  );
+  z-index:0;
+}
+
+.hero > div{
+  position:relative;
+  z-index:1;
+}
 
 /* SECTIONS */
 section{padding:120px 80px}
@@ -235,8 +263,14 @@ iframe{
     <div>
       <h2 class="section-title">About ThinkTek Marketing</h2>
       <p class="section-subtitle">
-        We combine marketing strategy, technology, and data to build scalable growth systems.
-      </p>
+  We combine marketing strategy, technology, and data to build scalable growth systems.
+  <br><br>
+  From AI-driven discovery to conversion-focused execution, we help businesses attract,
+  engage, and convert the right audiences at scale.
+  <br><br>
+  Our approach blends human strategy with automation, analytics, and modern technology
+  to create predictable, sustainable growth — not vanity metrics.
+</p>
     </div>
     <img src="image2.png" alt="ThinkTek Marketing">
   </div>
@@ -261,7 +295,7 @@ iframe{
         <li><strong>Paid Performance:</strong> High-converting LinkedIn, Google & Meta campaigns.</li>
         <li><strong>Founder-Led Branding:</strong> Executive thought leadership through content.</li>
       </ul>
-      <a href="#" class="service-cta">Learn More →</a>
+   
     </div>
 
     <div class="card service-card">
@@ -275,7 +309,7 @@ iframe{
         <li><strong>Nurture Sequences:</strong> Automated email & SMS workflows.</li>
         <li><strong>Lead Scoring:</strong> AI-based buyer-intent identification.</li>
       </ul>
-      <a href="#" class="service-cta">Learn More →</a>
+     
     </div>
 
     <div class="card service-card">
@@ -289,7 +323,7 @@ iframe{
         <li><strong>Custom Integrations:</strong> Unified internal workflows.</li>
         <li><strong>Tech-Stack Audits:</strong> Eliminate waste & fix data gaps.</li>
       </ul>
-      <a href="#" class="service-cta">Learn More →</a>
+     
     </div>
 
     <div class="card service-card">
@@ -303,7 +337,7 @@ iframe{
         <li><strong>Growth Dashboards:</strong> Real-time KPI visibility.</li>
         <li><strong>Predictive Insights:</strong> Forecast before scaling spend.</li>
       </ul>
-      <a href="#" class="service-cta">Learn More →</a>
+    
     </div>
 
   </div>
@@ -373,6 +407,7 @@ toggle.onclick=()=>{
 
 </body>
 </html>
+
 
 
 
