@@ -6,8 +6,8 @@
 
 <title>ThinkTek Marketing | Technology & Marketing Solutions</title>
 
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon.png?v=2">
+<link rel="apple-touch-icon" href="favicon.png?v=2">
 
 <style>
 :root{
@@ -156,6 +156,56 @@ iframe{
   section{padding:90px 24px}
   .hero h1{font-size:40px}
 }
+.services-grid{
+  align-items:stretch;
+}
+
+.service-card{
+  transition:.35s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.service-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 35px rgba(47,128,255,.25);
+}
+
+.service-icon{
+  font-size:26px;
+  margin-bottom:14px;
+}
+
+.service-card h3{
+  margin-bottom:6px;
+}
+
+.service-focus{
+  font-size:.95rem;
+  color:var(--text-muted);
+  margin-bottom:14px;
+}
+
+.service-card ul{
+  padding-left:18px;
+  margin-bottom:16px;
+}
+
+.service-card li{
+  font-size:.9rem;
+  margin-bottom:8px;
+  line-height:1.5;
+}
+
+.service-cta{
+  font-size:.9rem;
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:500;
+}
+
+.service-cta:hover{
+  text-decoration:underline;
+}
 </style>
 </head>
 
@@ -194,11 +244,68 @@ iframe{
 
 <section id="services">
   <h2 class="section-title">Our Services</h2>
-  <div class="grid4">
-    <div class="card">Digital Marketing</div>
-    <div class="card">Marketing Automation</div>
-    <div class="card">Web & Technology Solutions</div>
-    <div class="card">Data & Growth Analytics</div>
+  <p class="section-subtitle">
+    Scalable systems designed to drive ROI in an AI-first, data-driven world.
+  </p>
+
+  <div class="grid4 services-grid">
+
+    <div class="card service-card">
+      <div class="service-icon">📈</div>
+      <h3>Digital Marketing</h3>
+      <p class="service-focus">
+        ROI-driven growth in the modern AI-search landscape.
+      </p>
+      <ul>
+        <li><strong>Search & GEO Optimization:</strong> Visibility across Google and AI search engines like ChatGPT.</li>
+        <li><strong>Paid Performance:</strong> High-converting LinkedIn, Google & Meta campaigns.</li>
+        <li><strong>Founder-Led Branding:</strong> Executive thought leadership through content.</li>
+      </ul>
+      <a href="#" class="service-cta">Learn More →</a>
+    </div>
+
+    <div class="card service-card">
+      <div class="service-icon">⚙️</div>
+      <h3>Marketing Automation</h3>
+      <p class="service-focus">
+        Systems that put growth on autopilot.
+      </p>
+      <ul>
+        <li><strong>CRM Implementation:</strong> HubSpot, Salesforce & custom CRM setups.</li>
+        <li><strong>Nurture Sequences:</strong> Automated email & SMS workflows.</li>
+        <li><strong>Lead Scoring:</strong> AI-based buyer-intent identification.</li>
+      </ul>
+      <a href="#" class="service-cta">Learn More →</a>
+    </div>
+
+    <div class="card service-card">
+      <div class="service-icon">💻</div>
+      <h3>Web & Technology Solutions</h3>
+      <p class="service-focus">
+        Speed, stability, and scalable infrastructure.
+      </p>
+      <ul>
+        <li><strong>High-Performance Sites:</strong> Fast, secure & conversion-focused.</li>
+        <li><strong>Custom Integrations:</strong> Unified internal workflows.</li>
+        <li><strong>Tech-Stack Audits:</strong> Eliminate waste & fix data gaps.</li>
+      </ul>
+      <a href="#" class="service-cta">Learn More →</a>
+    </div>
+
+    <div class="card service-card">
+      <div class="service-icon">🧠</div>
+      <h3>Data & Growth Analytics</h3>
+      <p class="service-focus">
+        Intelligence that drives confident decisions.
+      </p>
+      <ul>
+        <li><strong>Attribution Modeling:</strong> Know which dollar drove each sale.</li>
+        <li><strong>Growth Dashboards:</strong> Real-time KPI visibility.</li>
+        <li><strong>Predictive Insights:</strong> Forecast before scaling spend.</li>
+      </ul>
+      <a href="#" class="service-cta">Learn More →</a>
+    </div>
+
   </div>
 </section>
 
@@ -266,6 +373,7 @@ toggle.onclick=()=>{
 
 </body>
 </html>
+
 
 
 
