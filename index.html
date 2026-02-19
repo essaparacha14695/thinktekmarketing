@@ -497,6 +497,65 @@ body.light .policies{
     grid-template-columns:1fr;
   }
 }
+    /* =========================
+   MODAL STYLING
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(6px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s ease;
+  z-index:3000;
+}
+
+.modal.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-content{
+  background:var(--bg-main);
+  width:90%;
+  max-width:800px;
+  max-height:85vh;
+  overflow-y:auto;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.modal-subtitle{
+  color:var(--text-muted);
+  margin:10px 0 25px;
+}
+
+.modal-box{
+  background:var(--bg-card);
+  padding:20px;
+  border-radius:14px;
+  margin-top:20px;
+}
+
+.close-btn{
+  background:none;
+  border:none;
+  font-size:24px;
+  cursor:pointer;
+  color:var(--text-main);
+}
   </style>
 </head>
 
@@ -688,26 +747,7 @@ body.light .policies{
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d532.3553747971414!2d29.032197946857025!3d40.99337474579985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab86ddeeb3993%3A0x127e0752a6a2cadb!2zUmFzaW1wYcWfYSwgSGF5cnVsbGFoIEVmZW5kaSBTay4gTm86MjcsIDM0NzE2IEthZMSxa8O2eS_EsHN0YW5idWw!5e0!3m2!1sen!2str!4v1771348389533!5m2!1sen!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
-
-<script>
-const toggle=document.getElementById("toggle");
-if(localStorage.theme==="light"){
-  document.body.classList.add("light");
-  toggle.textContent="☀️";
-}
-toggle.onclick=()=>{
-  document.body.classList.toggle("light");
-  const light=document.body.classList.contains("light");
-  toggle.textContent=light?"☀️":"🌙";
-  localStorage.theme=light?"light":"dark";
-};
-/* Impact counters */
-const counters=document.querySelectorAll(".impact-number");
-let done=false;
-const run=()=>{if(done)return;done=true;counters.forEach(c=>{let t=+c.dataset.target,n=0,i=t/60;(function f(){n+=i;if(n<t){c.textContent=Math.ceil(n);requestAnimationFrame(f)}else{c.textContent=t+(t===24?"/7":"+")}})()})};
-new IntersectionObserver(e=>e[0].isIntersecting&&run(),{threshold:.4}).observe(document.querySelector("#impact"));
-
-</script>
+  
 <section class="policies">
   <div class="policies-header">
     <h2>Policies</h2>
@@ -719,7 +759,7 @@ new IntersectionObserver(e=>e[0].isIntersecting&&run(),{threshold:.4}).observe(d
 
   <div class="policies-grid">
 
-    <a href="refund.html" class="policy-card">
+    <a href="#" class="policy-card" id="openRefund">
       <h3>Refund Policy</h3>
       <p>How refunds work for custom digital services.</p>
     </a>
@@ -736,20 +776,85 @@ new IntersectionObserver(e=>e[0].isIntersecting&&run(),{threshold:.4}).observe(d
 
   </div>
 </section>
+  <!-- REFUND MODAL -->
+<div class="modal" id="refundModal">
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h2>Refund Policy</h2>
+      <button class="close-btn" id="closeRefund">&times;</button>
+    </div>
+
+    <p class="modal-subtitle">
+      Custom digital services delivered digitally worldwide.
+    </p>
+
+    <div class="modal-box">
+      <h3>Summary</h3>
+      <p>
+        Refunds depend on the project stage because work is customized and time-based.
+      </p>
+    </div>
+
+    <h3 style="margin-top:30px;">Details</h3>
+
+    <p><strong>Before work begins:</strong> If cancellation is requested before work starts, a full refund may be issued minus non-refundable payment processing fees.</p>
+
+    <p><strong>After work begins:</strong> Once drafting, research, design, development, or implementation has started, payments are generally non-refundable due to committed time and resources.</p>
+
+    <p><strong>Milestone projects:</strong> Payments are split into milestones. You are only responsible for completed and approved milestones.</p>
+
+    <p><strong>Revisions:</strong> If deliverables do not match the agreed scope, revisions will be made according to the package terms.</p>
+
+    <p><strong>No refunds for preference:</strong> Refunds are not issued for change of mind if work meets agreed scope.</p>
+
+    <div class="modal-box" style="margin-top:30px;">
+      <h3>Contact</h3>
+      <p>Email: info@thinktekmarketing.com</p>
+    </div>
+
+  </div>
+</div>
+  <script>
+const toggle=document.getElementById("toggle");
+if(localStorage.theme==="light"){
+  document.body.classList.add("light");
+  toggle.textContent="☀️";
+}
+toggle.onclick=()=>{
+  document.body.classList.toggle("light");
+  const light=document.body.classList.contains("light");
+  toggle.textContent=light?"☀️":"🌙";
+  localStorage.theme=light?"light":"dark";
+};
+/* Impact counters */
+const counters=document.querySelectorAll(".impact-number");
+let done=false;
+const run=()=>{if(done)return;done=true;counters.forEach(c=>{let t=+c.dataset.target,n=0,i=t/60;(function f(){n+=i;if(n<t){c.textContent=Math.ceil(n);requestAnimationFrame(f)}else{c.textContent=t+(t===24?"/7":"+")}})()})};
+new IntersectionObserver(e=>e[0].isIntersecting&&run(),{threshold:.4}).observe(document.querySelector("#impact"));
+/* Refund Modal */
+const openRefund=document.getElementById("openRefund");
+const refundModal=document.getElementById("refundModal");
+const closeRefund=document.getElementById("closeRefund");
+
+openRefund.addEventListener("click",function(e){
+  e.preventDefault();
+  refundModal.classList.add("active");
+  document.body.style.overflow="hidden"; // lock scroll
+});
+
+closeRefund.addEventListener("click",function(){
+  refundModal.classList.remove("active");
+  document.body.style.overflow="auto";
+});
+
+window.addEventListener("click",function(e){
+  if(e.target===refundModal){
+    refundModal.classList.remove("active");
+    document.body.style.overflow="auto";
+  }
+});
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
