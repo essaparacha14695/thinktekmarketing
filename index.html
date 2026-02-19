@@ -428,6 +428,75 @@
     height:42px;
   }
 }
+    /* =========================
+   POLICIES SECTION
+========================= */
+
+.policies{
+  padding:120px 80px;
+  background:linear-gradient(
+    180deg,
+    var(--bg-main),
+    #040814
+  );
+}
+
+body.light .policies{
+  background:var(--bg-main);
+}
+
+.policies-header{
+  text-align:left;
+  margin-bottom:60px;
+}
+
+.policies-header h2{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.policies-header p{
+  color:var(--text-muted);
+  max-width:700px;
+}
+
+.policies-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.policy-card{
+  background:var(--bg-card);
+  padding:40px;
+  border-radius:18px;
+  transition:.35s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  text-decoration:none;
+  color:var(--text-main);
+  display:block;
+}
+
+.policy-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 30px rgba(47,128,255,.25);
+}
+
+.policy-card h3{
+  margin-bottom:8px;
+}
+
+.policy-card p{
+  color:var(--text-muted);
+  font-size:.95rem;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .policies-grid{
+    grid-template-columns:1fr;
+  }
+}
   </style>
 </head>
 
@@ -639,9 +708,37 @@ const run=()=>{if(done)return;done=true;counters.forEach(c=>{let t=+c.dataset.ta
 new IntersectionObserver(e=>e[0].isIntersecting&&run(),{threshold:.4}).observe(document.querySelector("#impact"));
 
 </script>
+<section class="policies">
+  <div class="policies-header">
+    <h2>Policies</h2>
+    <p>
+      We provide custom digital services delivered digitally worldwide.
+      Please review the policies below.
+    </p>
+  </div>
 
+  <div class="policies-grid">
+
+    <a href="refund.html" class="policy-card">
+      <h3>Refund Policy</h3>
+      <p>How refunds work for custom digital services.</p>
+    </a>
+
+    <a href="terms.html" class="policy-card">
+      <h3>Terms & Conditions</h3>
+      <p>Service scope, delivery, and customer responsibilities.</p>
+    </a>
+
+    <a href="privacy.html" class="policy-card">
+      <h3>Privacy Policy</h3>
+      <p>How we handle your information and project materials.</p>
+    </a>
+
+  </div>
+</section>
 </body>
 </html>
+
 
 
 
